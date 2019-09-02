@@ -24,8 +24,9 @@ Run the container by using the following command to also attach to the host-net.
 Remember to also bind `/etc/letsencrypt` to a host directory or new certificates will be generated every time the container restarts. 
 
 ```
-docker run \
+docker run -d \
   --net="host" --restart unless-stopped \
-  -v "my-config-dir:/etc/proxy" \
-  axelboberg/docker-ssl-proxy
+  --mount type=bind,source=my-config-directory,target=/etc/proxy \
+  --mount type=bind,source=my-certificate-directory,target=/etc/letsencrypt \
+  axelboberg/docker-ssl-proxy:1.0.1
 ```
