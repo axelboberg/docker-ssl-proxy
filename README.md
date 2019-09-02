@@ -27,5 +27,5 @@ Remember to also bind `/etc/letsencrypt` to a host directory or new certificates
 docker run \
   --net="host" --restart unless-stopped \
   -v "my-config-dir:/etc/proxy" \
-  docker-ssl-proxy
+  axelboberg/docker-ssl-proxy
 ```
