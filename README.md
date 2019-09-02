@@ -4,7 +4,7 @@ A Docker image using NGINX and Certbot to create a reverse-proxy that also creat
 ## Configuration
 Configuration is done through creating a file `config.json` and binding it to `/etc/proxy/config.json`.
 
-```json
+```
 {
   "certbot": {
     "email": "" // Your email-address for agreeing to Certbot's terms of service
