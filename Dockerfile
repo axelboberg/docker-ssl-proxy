@@ -14,5 +14,5 @@ RUN apt-get update && \
 WORKDIR /home
 COPY . .
 
-# Reaload nginx to take advantage of the new configuration
+# Run setup
 CMD [ "sh", "/home/setup.sh" ]
