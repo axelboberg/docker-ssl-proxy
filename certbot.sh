@@ -8,7 +8,7 @@ DOMAINS=$(jq --raw-output 'reduce .proxies[] as $proxy (""; . +
 
 # Find the email-address that should
 # be used for agreeing to the tos
-EMAIL=$(jq .certbot.email < /etc/proxy/config.json)
+EMAIL=$(jq -r .certbot.email < /etc/proxy/config.json)
 
 # Use certbot to create an SSL certificate
 certbot --nginx -n $DOMAINS --agree-tos --expand --email $EMAIL
