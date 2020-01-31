@@ -8,6 +8,10 @@ print_red () {
   printf "\033[0;31m$1\033[0m\n"
 }
 
+# Print meta
+print_cyan "Meta"
+certbot --version
+
 if ! [ -e /etc/proxy/config.json ]
 then
   print_red "/etc/proxy/config.json does not exist"
