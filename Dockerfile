@@ -1,4 +1,4 @@
-FROM nginx:1.15.12
+FROM nginx:1.16.1
 
 EXPOSE 80/tcp
 EXPOSE 443/tcp
