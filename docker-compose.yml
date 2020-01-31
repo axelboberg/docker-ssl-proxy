@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - ./proxy:/etc/proxy
+      - ./etc:/etc/letsencrypt
+    ports:
+      - '3000:80'
