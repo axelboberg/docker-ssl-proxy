@@ -28,5 +28,5 @@ docker run -d \
   --net="host" --restart unless-stopped \
   --mount type=bind,source=my-config-directory,target=/etc/proxy \
   --mount type=bind,source=my-certificate-directory,target=/etc/letsencrypt \
-  axelboberg/docker-ssl-proxy:1.1.1
+  axelboberg/docker-ssl-proxy:1.1.2
 ```
