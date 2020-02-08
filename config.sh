@@ -11,6 +11,7 @@ SERVERS=$(jq 'reduce .proxies[] as $proxy (""; . +
           proxy_set_header X-Forwarded-For $remote_addr;
           proxy_set_header X-Forwarded-Proto $scheme;
           proxy_set_header Host $host;
+          " + ($proxy.raw // "") + "
       }
     }\n"
 )' < /etc/proxy/config.json)
