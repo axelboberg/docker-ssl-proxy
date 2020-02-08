@@ -1,0 +1,16 @@
+{
+  "certbot": {
+    "email": "example@example.com"
+  },
+  "proxies": [
+    {
+      "domain": "example.com",
+      "location": "http://localhost:3000",
+      "raw": "proxy_set_header Upgrade $http_upgrade;\nproxy_set_header Connection $connection_upgrade;"
+    },
+    {
+      "domain": "example.com",
+      "location": "http://localhost:3000"
+    }
+  ]
+}
