@@ -12,7 +12,8 @@ Configuration is done through creating a file `config.json` and binding it to `/
   "proxies": [
     {
       "domain": "example.com", // The domain you want to forward and include in the SSL-certificate
-      "location": "http://localhost:3000" // The location you want to forward to
+      "location": "http://localhost:3000", // The location you want to forward to
+      "raw": // An optional string which will be added directly to the NGINX configuration's 'location' block
     }
   ]
 }
@@ -28,5 +29,5 @@ docker run -d \
   --net="host" --restart unless-stopped \
   --mount type=bind,source=my-config-directory,target=/etc/proxy \
   --mount type=bind,source=my-certificate-directory,target=/etc/letsencrypt \
-  axelboberg/docker-ssl-proxy:1.1.2
+  axelboberg/docker-ssl-proxy:1.1.3
 ```
