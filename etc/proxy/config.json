@@ -1,4 +1,5 @@
 {
+  "limit": "20r/s",
   "certbot": {
     "email": "example@example.com"
   },

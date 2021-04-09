@@ -1,5 +1,9 @@
 #!/bin/sh
 
+print_cyan () {
+  printf "\033[1;36m$1\033[0m\n"
+}
+
 # Loop through the proxies and generate
 # NGINX-configurations for each
 SERVERS=$(jq 'reduce .proxies[] as $proxy (""; . + 
@@ -17,6 +21,9 @@ SERVERS=$(jq 'reduce .proxies[] as $proxy (""; . +
     }\n"
 )' < /etc/proxy/config.json)
 
+RATE_LIMIT=$(jq -r '.limit // "10r/s"' < /etc/proxy/config.json)
+print_cyan "Setting rate-limit to $RATE_LIMIT"
+
 # Wrap the generated server-blocks
 # in a default configuration
 CONFIG="
@@ -30,7 +37,7 @@ CONFIG="
       ''      close;
     }
 
-    limit_req_zone \$binary_remote_addr zone=ratelimit:10m rate=10r/s;
+    limit_req_zone \$binary_remote_addr zone=ratelimit:10m rate=$RATE_LIMIT;
     $SERVERS
   }
 "

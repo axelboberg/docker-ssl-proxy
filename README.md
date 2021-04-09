@@ -6,6 +6,7 @@ Configuration is done through creating a file `config.json` and binding it to `/
 
 ```
 {
+  "limit": "20r/s" // Simple rate-limiting, defaults to 10r/s, with a burst of 20
   "certbot": {
     "email": "" // Your email-address for agreeing to Certbot's terms of service
   },

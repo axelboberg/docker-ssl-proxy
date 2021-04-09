@@ -3,7 +3,7 @@ services:
   app:
     build: .
     volumes:
-      - ./proxy:/etc/proxy
-      - ./etc:/etc/letsencrypt
+      - ./etc/proxy:/etc/proxy
+      - ./etc/letsencrypt:/etc/letsencrypt
     ports:
       - '3000:80'
