@@ -6,7 +6,7 @@ Configuration is done through creating a file `config.json` and binding it to `/
 
 ```
 {
-  "limit": "20r/s" // Simple rate-limiting, defaults to 10r/s, with a burst of 20
+  "limit": "20r/s", // Simple rate-limiting, defaults to 10r/s, with a burst of 20
   "certbot": {
     "email": "" // Your email-address for agreeing to Certbot's terms of service
   },
@@ -30,5 +30,5 @@ docker run -d \
   --net="host" --restart unless-stopped \
   --mount type=bind,source=my-config-directory,target=/etc/proxy \
   --mount type=bind,source=my-certificate-directory,target=/etc/letsencrypt \
-  axelboberg/docker-ssl-proxy:1.1.3
+  axelboberg/docker-ssl-proxy:1.1.4
 ```
