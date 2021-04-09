@@ -7,6 +7,7 @@ SERVERS=$(jq 'reduce .proxies[] as $proxy (""; . +
       server_name " + $proxy.domain + ";
 
       location / {
+          limit_req zone=ratelimit burst=20 nodelay;
           proxy_pass " + $proxy.location + ";
           proxy_set_header X-Forwarded-For $remote_addr;
           proxy_set_header X-Forwarded-Proto $scheme;
@@ -29,6 +30,7 @@ CONFIG="
       ''      close;
     }
 
+    limit_req_zone \$binary_remote_addr zone=ratelimit:10m rate=10r/s;
     $SERVERS
   }
 "
