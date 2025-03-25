@@ -1,4 +1,4 @@
-FROM nginx:1.16.1
+FROM nginx:1.27.4
 
 EXPOSE 80/tcp
 EXPOSE 443/tcp
@@ -7,7 +7,7 @@ EXPOSE 443/tcp
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends \
     certbot \
-    python-certbot-nginx \
+    python3-certbot-nginx \
     jq \
     cron
 
